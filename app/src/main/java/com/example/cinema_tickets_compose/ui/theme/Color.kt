@@ -12,3 +12,9 @@ val Pink40 = Color(0xFF7D5260)
 
 val PrimaryTextColor = Color(0xFF181818)
 val SecondaryTextColor = Color(0x4C181818)
+val Orange =Color(0xffff5524)
+
+val White87 = Color(0xDEFFFFFF)
+val White60 = Color(0x99FFFFFF)
+val White38 = Color(0x61FFFFFF)
+val White8 = Color(0x14FFFFFF)
