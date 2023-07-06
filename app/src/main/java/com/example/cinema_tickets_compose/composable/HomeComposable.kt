@@ -1,8 +1,6 @@
 package com.example.cinema_tickets_compose.composable
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
@@ -19,7 +17,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.RectangleShape
-import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -28,22 +25,24 @@ import com.example.cinema_tickets_compose.R
 import com.example.cinema_tickets_compose.ui.theme.Orange
 import com.example.cinema_tickets_compose.ui.theme.PrimaryTextColor
 import com.example.cinema_tickets_compose.ui.theme.SecondaryTextColor
-import com.example.cinema_tickets_compose.ui.theme.White60
-import com.example.cinema_tickets_compose.ui.theme.White87
 
 @Composable
 fun ButtonRow(){
         Row(){
-            DefaultButton(text = "ssss", onClick = {})
+            DefaultButton(text = "Now Showing", onClick = {})
             SpacerHorizontal(width = 8.dp)
-            TransparentButton(text = "ssssssssssss", onClick = {})
+            TransparentButton(text = "Coming Soon", onClick = {})
         }
     }
 @Composable
 fun BottomNavIcons(){
-    Row(modifier = Modifier.fillMaxWidth(),
-    horizontalArrangement = Arrangement.SpaceBetween){
-        IconButton(onClick = {}, modifier = Modifier.size(32.dp)) {
+    Row(
+        modifier = Modifier.fillMaxWidth(),
+        horizontalArrangement = Arrangement.SpaceAround,
+        verticalAlignment = Alignment.CenterVertically
+
+    ) {
+        IconButton(onClick = {}, modifier = Modifier.size(52.dp)) {
             Box(
                 modifier = Modifier
                     .fillMaxSize()
@@ -55,31 +54,46 @@ fun BottomNavIcons(){
                     painter = painterResource(id = R.drawable.icon_play),
                     contentDescription = "",
                     tint = Color.White,
-                    modifier = Modifier.size(24.dp),
+                    modifier = Modifier.size(32.dp),
                 )
             }
 
 
         }
-        Icon(
-            painter = painterResource(id = R.drawable.icon_search),
-            contentDescription = "",
-            tint = Color.Black,
-            modifier = Modifier.size(24.dp)
-        )
+        Box(
 
-        Icon(
-            painter = painterResource(id = R.drawable.icon_vedio),
-            contentDescription = "",
-            tint = Color.Black,
-            modifier = Modifier.size(24.dp)
-        )
-        Icon(
-            painter = painterResource(id = R.drawable.icon_user),
-            contentDescription = "",
-            tint = Color.Black,
-            modifier = Modifier.size(24.dp)
-        )
+            contentAlignment = Alignment.Center
+        ) {
+            Icon(
+                painter = painterResource(id = R.drawable.icon_search),
+                contentDescription = "",
+                tint = Color.Black,
+                modifier = Modifier.size(32.dp)
+            )
+        }
+        Box(
+
+            contentAlignment = Alignment.Center
+        ) {
+
+            Icon(
+                painter = painterResource(id = R.drawable.icon_vedio),
+                contentDescription = "",
+                tint = Color.Black,
+                modifier = Modifier.size(32.dp)
+            )
+        }
+        Box(
+
+            contentAlignment = Alignment.Center
+        ) {
+            Icon(
+                painter = painterResource(id = R.drawable.icon_user),
+                contentDescription = "",
+                tint = Color.Black,
+                modifier = Modifier.size(32.dp)
+            )
+        }
     }
 }
 @Composable
