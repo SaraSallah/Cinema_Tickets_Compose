@@ -53,18 +53,19 @@ fun BottomTicketsCard() {
             TimeContent()
             SpacerVertical(height = 16.dp)
             Spacer(modifier = Modifier.weight(1f))
-            Row(modifier = Modifier.padding(16.dp),
+            Row(modifier = Modifier.padding(vertical =16.dp),
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.SpaceEvenly
 
                 ) {
                 Box(
-                    modifier = Modifier.weight(1f)
-                    .padding(16.dp),
+                    modifier = Modifier.weight(1f).padding(horizontal = 16.dp)
                 ) {
                     ShowPrice()
 
                 }
 
-                Box(modifier = Modifier.weight(1f)) {
+                Box() {
                     ButtonWithIcon(
                         iconResId = R.drawable.booking, text = "Buy Ticket"
                     ) {
@@ -93,7 +94,7 @@ fun ShowPrice() {
 
         )
         Text(
-            text = "5tickets",
+            text = "4 tickets",
             fontSize = 16.sp,
             fontFamily = Rubik,
             color = SecondaryTextColor
