@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Cinema_Tickets_Compose</string>
+    <string name="available">Available</string>
+    <string name="taken">Taken</string>
+    <string name="selected">Selected</string>
+    <string name="_4_tickets">4 tickets</string>
+    <string name="buy_ticket">Buy Ticket</string>
+    <string name="_100_00">$100,00</string>
 </resources>
