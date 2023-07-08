@@ -22,14 +22,20 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.Color.Companion.Gray
+import androidx.compose.ui.graphics.Color.Companion.White
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.cinema_tickets_compose.R
 import com.example.cinema_tickets_compose.composable.BottomTicketsCard
+import com.example.cinema_tickets_compose.composable.CinemaScreen
 import com.example.cinema_tickets_compose.composable.IconClose
+import com.example.cinema_tickets_compose.composable.SeatsAvailable
 import com.example.cinema_tickets_compose.composable.SpacerVertical
 import com.example.cinema_tickets_compose.composable.TextTime
+import com.example.cinema_tickets_compose.ui.theme.Orange
 import com.example.cinema_tickets_compose.ui.theme.White60
 
 @Composable
@@ -52,13 +58,7 @@ fun Screen() {
             modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.Center
         ) {
-            Image(
-                painter = painterResource(id = R.drawable.img_header),
-                contentDescription = null,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .fillMaxHeight(.1f)
-            )
+            CinemaScreen(painter = painterResource(id = R.drawable.img_header ) )
         }
         Row(
             modifier = Modifier.fillMaxWidth(),
@@ -71,6 +71,17 @@ fun Screen() {
                     .fillMaxWidth()
                     .fillMaxHeight(.5f)
             )
+        }
+        Row(
+            Modifier
+                .fillMaxWidth()
+                .padding(vertical = 32.dp),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.SpaceEvenly
+        ) {
+            SeatsAvailable(text = stringResource(R.string.available), color = White)
+            SeatsAvailable(text = stringResource(R.string.taken), color = Gray)
+            SeatsAvailable(text = stringResource(R.string.selected), color = Orange)
         }
 
         Spacer(modifier = Modifier.weight(1f))
