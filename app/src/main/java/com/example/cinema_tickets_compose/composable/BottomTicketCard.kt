@@ -1,6 +1,5 @@
 package com.example.cinema_tickets_compose.composable
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -11,12 +10,9 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
-import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.Card
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -24,13 +20,7 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
-import androidx.compose.ui.draw.drawWithContent
-import androidx.compose.ui.geometry.Offset
-import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.painter.Painter
-import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -40,8 +30,9 @@ import com.example.cinema_tickets_compose.screens.booking_details_screen.Booking
 import com.example.cinema_tickets_compose.screens.booking_details_screen.CalenderUiState
 import com.example.cinema_tickets_compose.screens.booking_details_screen.CalendersUiState
 import com.example.cinema_tickets_compose.screens.booking_details_screen.TimeContent
+import com.example.cinema_tickets_compose.ui.theme.PrimaryTextColor
 import com.example.cinema_tickets_compose.ui.theme.Rubik
-import com.example.cinema_tickets_compose.ui.theme.White87
+import com.example.cinema_tickets_compose.ui.theme.SecondaryTextColor
 
 
 @Composable
@@ -62,23 +53,52 @@ fun BottomTicketsCard() {
             TimeContent()
             SpacerVertical(height = 16.dp)
             Spacer(modifier = Modifier.weight(1f))
-            Row(){
-                Column() {
+            Row(modifier = Modifier.padding(16.dp),
+
+                ) {
+                Box(
+                    modifier = Modifier.weight(1f)
+                    .padding(16.dp),
+                ) {
+                    ShowPrice()
 
                 }
-                ButtonWithIcon(
-                iconResId = R.drawable.booking, text = "Buy Ticket"
-            ) {
+
+                Box(modifier = Modifier.weight(1f)) {
+                    ButtonWithIcon(
+                        iconResId = R.drawable.booking, text = "Buy Ticket"
+                    ) {
+                    }
+
+
+                }
+
 
             }
-
-
-
-            }
-
 
 
         }
+    }
+}
+
+@Composable
+fun ShowPrice() {
+    Column(horizontalAlignment = Alignment.Start) {
+        Text(
+            text = "100$",
+            fontSize = 24.sp,
+            fontFamily = Rubik,
+            color = PrimaryTextColor,
+            fontWeight = FontWeight.Medium
+
+        )
+        Text(
+            text = "5tickets",
+            fontSize = 16.sp,
+            fontFamily = Rubik,
+            color = SecondaryTextColor
+        )
+
     }
 }
 
@@ -106,5 +126,5 @@ private fun LazyRawContent(
 
 @Composable
 fun CalendersItem(state: CalenderUiState) {
-    ColumnCardCalender(state.number, state.day)
+    Date(state.number, state.day)
 }

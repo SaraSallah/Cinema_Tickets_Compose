@@ -39,7 +39,7 @@ import com.example.cinema_tickets_compose.ui.theme.Orange
 import com.example.cinema_tickets_compose.ui.theme.White60
 
 @Composable
-fun Screen() {
+fun BookingDetailsScreen() {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -101,42 +101,17 @@ fun TimeContent() {
     val state = CalendersUiState()
     LazyRow(horizontalArrangement = Arrangement.spacedBy(16.dp)) {
         items(state.listTime) {
-            TextTime(text = it)
+            TextTime(time = it)
         }
     }
 }
-//
-//@Composable
-//fun ItemSelected(
-//    modifier: Modifier = Modifier,
-//    title: String,
-//    icon: Int,
-//    contentDescription: String? = null,
-//    tint: Color = Color.Unspecified,
-//) {
-//    Card(
-//        modifier = Modifier.fillMaxWidth(),
-//        colors = CardDefaults.cardColors(Color.Black)
-//    ) {
-//        Icon(
-//            modifier = modifier.size(6.dp),
-//            painter = painterResource(icon),
-//            contentDescription = contentDescription,
-//            tint = tint
-//        )
-//        Text(text = title, color = White60)
-////        Spacer(modifier = Modifier.weight(1f))
-////        BottomTicketsCard()
-////        TimeContent()
-//
-//    }
-//}
+
 
 
 @Preview(showBackground = true)
 @Composable
 fun PreviewBookingDetailsScreen() {
 //    BookingDetailsScreen()
-    Screen()
+    BookingDetailsScreen()
 
 }
